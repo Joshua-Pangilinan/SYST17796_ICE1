@@ -25,9 +25,9 @@ public class CardTrickICE1 {
         Random r = new Random();
         Scanner scanner = new Scanner(System.in);
         Boolean checkFlag = false;
-        Card luckyCard = new Card;
+        Card luckyCard = new Card();
         luckyCard.setValue(1);
-        luckyCard.setSuits("spades")
+        luckyCard.setSuits("spades");
         Card[] magicHand = new Card[7]; //Array of object
         for( int i=0;i<magicHand.length;i++)
         {

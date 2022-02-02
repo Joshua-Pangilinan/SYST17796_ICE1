@@ -10,7 +10,11 @@ package cardtrickice1;
  * step 3: user card is in  the array 'card is found'
  *
  * @author sivagamasrinivasan
+ * @modifier Joshua Pangilinan 991442827
  */
+import java.util.Random;
+import java.util.Scanner;
+
 public class CardTrickICE1 {
 
     /**
@@ -18,16 +22,32 @@ public class CardTrickICE1 {
      */
     public static void main(String[] args) 
     {
+        Random r = new Random();
+        Scanner scanner = new Scanner(System.in);
+        Boolean checkFlag = false;
         Card[] magicHand = new Card[7]; //Array of object
         for( int i=0;i<magicHand.length;i++)
         {
-            Card c1 = new Card();
-            c1.setValue(2);//use a method to generate random *13
-            c1.setSuits("hearts");//random method suit 
+            Card card = new Card();
+            card.setValue(r.nextInt(13) + 1);
+            card.setSuits(card.SUITS[r.nextInt(4)]);
+            System.out.println(card.toString());
+            magicHand[i] = card;
         }
         //step 2:take input 
-        
+        System.out.print("Pick a card, any card: ");
+        String input = scanner.nextLine();
         //step 3: match with array 
+        for (int i=0; i<magicHand.length; i++){
+            if (magicHand[i].toString().equals(input)){
+                checkFlag = true;
+            }
+        }
+
+        if (checkFlag == true){
+            System.out.println("Your card was in the hand!");
+        } else {
+            System.out.println("Try again!");
+        }
     }
-    
 }
